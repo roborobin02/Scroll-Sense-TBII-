@@ -13,15 +13,16 @@ It should therefore help you improving your habits.
 
 # Instructions to run my app
 
-Clone my repository in a location of your choice
+1. Clone my repository in a location of your choice
 <br/>
 git clone https://github.com/shaq31415926/sarah-haq-tbii-exam.git
 <br/>
 
-Change the directory:
+2. Change the directory:
 cd sarah-haq-tbii-exam
 <br/>
-Run the code
+3. Run the code
+4. Have Fun!
 
 Mac:
 python3 app.py
