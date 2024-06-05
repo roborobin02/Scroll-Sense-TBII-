@@ -23,11 +23,11 @@ cd sarah-haq-tbii-exam
 <br/>
 3: Run the code
 <br/>
-4: Have Fun!
-
 Mac:
 python3 app.py
 <br/>
-
 Windows:
 python app.py
+<br/>
+
+4: Have Fun :)
