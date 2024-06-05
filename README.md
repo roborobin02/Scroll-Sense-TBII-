@@ -17,10 +17,13 @@ Clone my repository in a location of your choice
 git clone https://github.com/shaq31415926/sarah-haq-tbii-exam.git
 Change the directory:
 cd sarah-haq-tbii-exam
+<br/>
 Run the code
+
 Mac:
 
 python3 app.py
+<br/>
 Windows:
 
 python app.py
