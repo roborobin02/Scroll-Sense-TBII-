@@ -8,68 +8,51 @@ root.title("ScrollSense")
 screen_width = 350
 screen_height = 750
 
+# so that you cant resize the scren
 root.minsize(screen_width, screen_height)
+root.maxsize(screen_width, screen_height)
 
 
+# main script content
 def create_new_page(root):
-    """This function creates a new page that will clear all the widgets
-    that were previously generated, changes the background colour and places a button that will go back"""
-
-    # clears the widgets - the image and the button
+    """This function creates a new page that will clear all the widgets,
+    change the background colour, and place a button to go back."""
     clear_widgets(root)
-
-    # change the background colour of the frame
     root.configure(background="pink")
 
-    # place a button that will go back
-    back_button = tk.Button(root,
-                            text="GO BACK",
-                            font=("Comic Sans MS", 14, "bold"),
-                            command=lambda: create_startpage(root, image_file_path) #="/Users/robinpaul/Desktop/TechBasics2/images/homepage.jpg")
-                            )
+    back_button = tk.Button(root, text="GO BACK", font=("Comic Sans MS", 14, "bold"),
+                            command=lambda: create_startpage(root, image_file_path))
+    back_button.place(relx=0.5, rely=0.925, anchor="center")
 
-    back_button.place(relx=0.5,
-                      rely=0.925)
+    exit_button = tk.Button(root, text="X", font=("Comic Sans MS", 14, "bold"),
+                            command=root.destroy)
+    exit_button.place(relx=0.6, rely=0.925, anchor="center")
 
-    # We covered this in TBI - a button that closes the game
-    exit_button = tk.Button(text="X",
-                            font=("Comic Sans MS", 14, "bold"),
-                            command=root.destroy
-                            )
-    exit_button.pack(side="bottom", anchor='e')
-    exit_button.place(relx=0.6,
-                      rely=0.925)
 
 def create_startpage(root, image_file_path):
-    """This definition creates the homepage.
-    It places a background image and places a button at the bottom"""
+    """This function creates the homepage with a background image and places a button at the bottom."""
+    set_background(root, image_file_path)
 
-    # place a background image on the home page using the set background definition
-    set_background(root, image_file_path) #="/Users/robinpaul/Desktop/TechBasics2/images/ScrollSenseScreenshot1.jpg")
+    intro_frame = tk.Frame(root, bg="white", bd=0)
+    intro_frame.place(relwidth=1, relheight=1)
 
+    intro_label = tk.Label(intro_frame, text="Welcome to the ScrollSense Prototype!\nPlease enter your name:",
+                           bg="white", font=("Comic Sans MS", 14))
+    intro_label.place(relx=0.5, rely=0.6, anchor="center")
 
-    intro_frame = tk.Frame(root)
-    intro_frame.pack(side="top", fill="both", expand=True)
+    name_entry = tk.Entry(intro_frame, font=("Comic Sans MS", 12))
+    name_entry.place(relx=0.5, rely=0.65, anchor="center")
 
-    intro_label = tk.Label(intro_frame, text="Welcome to the ScrollSense Prototype!\nPlease enter your name:")
-    intro_label.place(x=270, y=450, anchor="center")
+    daily_time_label = tk.Label(intro_frame, text="Please tell me your daily time on Instagram (in Hours):",
+                                bg="white", font=("Comic Sans MS", 14))
+    daily_time_label.place(relx=0.5, rely=0.7, anchor="center")
 
-    name_entry = tk.Entry(intro_frame)
-    name_entry.place(x=270, y=500, anchor="center")
+    daily_time_entry = tk.Entry(intro_frame, font=("Comic Sans MS", 12))
+    daily_time_entry.place(relx=0.5, rely=0.75, anchor="center")
 
-    daily_time_label = tk.Label(intro_frame, text="Please tell me your daily time on Instagram (in Hours):")
-    daily_time_label.place(x=270, y=550, anchor="center")
-
-    daily_time_entry = tk.Entry(intro_frame)
-    daily_time_entry.place(x=270, y=600, anchor="center")
-
-    # place a button that will go a new page
-    newpage_button = tk.Button(root,
-                               text="CLICK HERE TO GO TO THE NEXT PAGE",
-                               font=("Ubuntu", 14, "bold"),
-                               command=lambda: create_new_page(root)
-                               )
-    newpage_button.pack(side="bottom")
+    newpage_button = tk.Button(root, text="CLICK HERE TO GO TO THE NEXT PAGE", font=("Ubuntu", 14, "bold"),
+                               command=lambda: create_new_page(root))
+    newpage_button.place(relx=0.5, rely=0.925, anchor="center")
 
 
 image_file_path = 'images/ScrollSenseScreenshot1.jpg'
